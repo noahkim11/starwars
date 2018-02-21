@@ -40,19 +40,19 @@ set clean_actor = replace(actor,'''S VOICE','');
 select idx, clean_location, location_counter, clean_actor, lines, neg, neu, pos, compound, word_count
 from movie.sw
 where neg > 0.3
-and pos < 0.3
+and pos < 0.3;
  
 
 select clean_actor, count(*)
 from movie.sw
-group by clean_actor
+group by clean_actor;
 
 
 
 select clean_location, location_counter, avg(neg) as avg_neg, avg(neu) as avg_neu, avg(pos) as avg_pos, avg(compound) as avg_compound, count(*) as num_lines
 from movie.sw
 group by clean_location, location_counter
-order by location_counter, clean_location
+order by location_counter, clean_location;
 
 
 
